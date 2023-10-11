@@ -10,7 +10,6 @@ colorama.init()
 
 class Airline:
     l = []
-    count = 0
 
     def __init__(self, destination, flight_number, airplane_type, departure_time, day):
         self.destination = destination
@@ -19,7 +18,6 @@ class Airline:
         self.departure_time = departure_time
         self.day = day
         Airline.l.append(self)
-        self.count += 1
 
     def __str__(self):
         return "{} {} {} {} {}".format(self.destination, self.flight_number, self.airplane_type, self.departure_time,
