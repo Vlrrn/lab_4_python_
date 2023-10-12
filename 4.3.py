@@ -6,11 +6,7 @@
 #   4. Для классов TownCar и WorkCar переопределите метод show_speed.
 #   При начении скорости свыше 60 (TownCar) и 40 (WorkCar) должно выводиться сообщение о превышении скорости.
 
-class Car():
-    speed = 0
-    color = ''
-    name = ''
-    is_police = False
+class Car:
     cars = []
 
     def __init__(self, speed, color, name, is_police):
@@ -21,48 +17,52 @@ class Car():
         Car.cars.append(self)
 
     def go(self):
-        print("----")
+        print("{} поехала".format(self.name))
 
     def stop(self):
-        print("||")
+        print("{} остановилась".format(self.name))
 
     def turn(self, direction):
-        print("/", direction)
+        print("{} повернула {}".format(self.name, direction))
 
     def show_speed(self):
-        print(self.speed)
+        print("Текущая скорость {} - {} км/ч".format(self.name, self.speed))
 
 
 class TownCar(Car):
-    def tc_m(self):
-        print("tc")
-
     def show_speed(self):
+        print("Текущая скорость {} - {} км/ч".format(self.name, self.speed))
         if self.speed > 60:
-            print("Нарушение! > 60")
+            print("Нарушение {} скоростного режима!".format(self.name))
 
 
 class SportCar(Car):
-    def sc_m(self):
-        print("sc")
+    pass
 
 
 class WorkCar(Car):
-    def wc_m(self):
-        print("wc")
-
     def show_speed(self):
+        print("Текущая скорость {} - {} км/ч".format(self.name, self.speed))
         if self.speed > 40:
-            print("Нарушение! > 40")
+            print("Нарушение {} скоростного режима!".format(self.name))
 
 
 class PoliceCar(Car):
-    def pc_m(self):
-        print("pc")
+    pass
 
 
-c1 = WorkCar(41, "red", "name 1", False)
+c1 = WorkCar(41, "красный", "name 1", False)
+c1.go()
 c1.show_speed()
-c2 = SportCar(20, "blue", "name 2", False)
+c1.turn("налево")
+c1.stop()
+print()
+c2 = SportCar(100, "синий", "name 2", False)
+c2.go()
 c2.show_speed()
-c2.turn("left")
+c2.turn("направо")
+print("Цвет {} - {}".format(c2.name, c2.color))
+print()
+c3 = TownCar(70, "жёлтый", "name 3", False)
+c3.go()
+c3.show_speed()

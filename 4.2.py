@@ -48,9 +48,10 @@ def check_input(s, goal: int):
         return
 
 
-a1 = Airline("Minsk", 3, "civil", "15:25", "Mon")
-a2 = Airline("Paris", 2, "civil", "10:00", "Sun")
-a3 = Airline("Minsk", 6, "civil", "20:40", "Wed")
+a1 = Airline("Minsk", 3, "civil", "15:25", "Monday")
+a2 = Airline("Paris", 2, "civil", "10:00", "Sunday")
+a3 = Airline("Minsk", 6, "civil", "20:40", "Wednesday")
+a4 = Airline("Paris", 11, "civil", "5:15", "Sunday")
 while True:
     print("""
             Выввести :
