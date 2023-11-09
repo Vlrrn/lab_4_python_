@@ -5,6 +5,10 @@
 #   3. Добавьте в базовый класс метод show_speed, который должен показывать текущую скорость автомобиля;
 #   4. Для классов TownCar и WorkCar переопределите метод show_speed.
 #   При начении скорости свыше 60 (TownCar) и 40 (WorkCar) должно выводиться сообщение о превышении скорости.
+import colorama
+from colorama import Fore, Style
+colorama.init()
+
 
 class Car:
     cars = []
@@ -33,7 +37,7 @@ class TownCar(Car):
     def show_speed(self):
         print("Текущая скорость {} - {} км/ч".format(self.name, self.speed))
         if self.speed > 60:
-            print("Нарушение {} скоростного режима!".format(self.name))
+            print(Fore.RED + "Нарушение {} скоростного режима!".format(self.name) + Style.RESET_ALL)
 
 
 class SportCar(Car):
@@ -44,13 +48,14 @@ class WorkCar(Car):
     def show_speed(self):
         print("Текущая скорость {} - {} км/ч".format(self.name, self.speed))
         if self.speed > 40:
-            print("Нарушение {} скоростного режима!".format(self.name))
+            print(Fore.RED + "Нарушение {} скоростного режима!".format(self.name) + Style.RESET_ALL)
 
 
 class PoliceCar(Car):
     pass
 
 
+print(Fore.BLUE + "\n", " " * 5, "Задание 3\n" + Style.RESET_ALL)
 c1 = WorkCar(41, "красный", "name 1", False)
 c1.go()
 c1.show_speed()

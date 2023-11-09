@@ -54,7 +54,7 @@ a3 = Airline("Minsk", 6, "civil", "20:40", "Wednesday")
 a4 = Airline("Paris", 11, "civil", "5:15", "Sunday")
 while True:
     print("""
-            Выввести :
+            Вывести :
        1) По пункту назанчения
        2) По дню недели
        3) Все рейсы
@@ -72,10 +72,11 @@ while True:
         message = "Введите день недели: "
         # print(Airline.l[0])
     elif n == 3:
-        print("Список рейсов:\n")
+        print("Список рейсов:")
         for i in range(0, len(Airline.l)):
             print(Airline.l[i])
     else:
+        print(Fore.LIGHTMAGENTA_EX)
         print("""
                     ＞　    フ
                 　　| 　_　 _|
